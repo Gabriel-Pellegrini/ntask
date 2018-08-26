@@ -1,24 +1,15 @@
 const express = require('express');
+const consign = require('consign');
 const app = express();
 const port = 3000; 
 
 //Configuring JSON tabulation
 app.set('json spaces',4);
 
-app.get("/",(req,res) => 
-    res.json({Status:"Ntask API Ok"})
-);
+consign()
+    .include('routes')
+    .into(app)
 
-app.get("/tasks",function (req,res)  {
-    res.json({
-        tasks:[
-            {"title":"Fazer Compras"},
-            {title:"estudar JS"},
-            {"title":"Comprar Livro"}
-        ]
-    });
-});
-
-app.listen(port,function () {
+app.listen(port,() => {
  console.log("Ntask listening on port " + port);
 })
