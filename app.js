@@ -5,9 +5,9 @@ const port = 3000;
 //Configuring JSON tabulation
 app.set('json spaces',4);
 
-app.get("/",function (req,res)  {
+app.get("/",(req,res) => 
     res.json({Status:"Ntask API Ok"})
-});
+);
 
 app.get("/tasks",function (req,res)  {
     res.json({
