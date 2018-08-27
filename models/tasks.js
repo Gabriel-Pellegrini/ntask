@@ -1,3 +1,5 @@
+
+//This module exports a callback to route request
 module.exports = app =>{
     return {
         findAll : (params, callback) => {
