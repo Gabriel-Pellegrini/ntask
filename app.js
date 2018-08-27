@@ -7,9 +7,11 @@ const port = 3000;
 app.set('json spaces',4);
 
 consign()
-    .include('routes')
+    .include('models')
+    .then('routes')
     .into(app)
 
 app.listen(port,() => {
  console.log("Ntask listening on port " + port);
 })
+
