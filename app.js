@@ -3,13 +3,13 @@ const consign = require('consign');
 const app = express();
 
 //Configuring JSON tabulation
-app.set('json spaces',4);
+//app.set('json spaces',4);
 
 consign()
     .include('models')
-    .then ('libs')
+    .then('libs/middlewares.js')
     .then('routes')
-    .then('boot')
+    .then('libs/boot.js')
     .into(app)
 
 
