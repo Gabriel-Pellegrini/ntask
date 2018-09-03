@@ -1,7 +1,7 @@
 module.exports = (sequelize,DataType) => {
     const Users = sequelize.define("Users",{
         id: {
-            type: DataType,INTEGER,
+            type: DataType.INTEGER,
             primaryKey: true,
             autoIncrement: true
         },
@@ -27,12 +27,17 @@ module.exports = (sequelize,DataType) => {
                 notEmpty:true
             }
         }
-    },{
+    }/* ,{
         classMethods: {
             associate: (models) => {
                 Users.hasMany(models.Tasks);
             }
         }
-    });
+    } */);
+
+        Users.associate = (models) => {
+            Users.hasMany(models.Tasks)
+        };
+
     return Users;
 };
