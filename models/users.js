@@ -27,17 +27,19 @@ module.exports = (sequelize,DataType) => {
                 notEmpty:true
             }
         }
-    }/* ,{
+    },{
         classMethods: {
             associate: (models) => {
                 Users.hasMany(models.Tasks);
             }
         }
-    } */);
+    });
 
-        Users.associate = (models) => {
-            Users.hasMany(models.Tasks)
-        };
+        // After Version 4 of sequelize isn't more accept associating as a object into .define parameter
+
+        // Users.associate = (models) => {
+        //     Users.hasMany(models.Tasks)
+        // };
 
     return Users;
 };
